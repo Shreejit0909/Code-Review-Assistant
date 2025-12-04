@@ -1,0 +1,58 @@
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Dependencies (handled by subdirectories)
+node_modules/
+venv/
+__pycache__/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Cache
+.cache/
+*.cache
+
+# Package manager locks (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+# Pipfile.lock
+# poetry.lock

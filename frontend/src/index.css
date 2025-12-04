@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 218 20% 8%;
+        --foreground: 220 10% 95%;
+        --card: 217 20% 10%;
+        --card-foreground: 220 10% 95%;
+        --popover: 217 20% 10%;
+        --popover-foreground: 220 10% 95%;
+        --primary: 239 84% 67%;
+        --primary-foreground: 220 10% 95%;
+        --secondary: 217 20% 14%;
+        --secondary-foreground: 220 10% 95%;
+        --muted: 217 20% 14%;
+        --muted-foreground: 215 15% 60%;
+        --accent: 221 83% 53%;
+        --accent-foreground: 220 10% 95%;
+        --destructive: 0 62% 55%;
+        --destructive-foreground: 220 10% 95%;
+        --border: 215 20% 19%;
+        --input: 215 20% 19%;
+        --ring: 239 84% 67%;
+        --radius: 0.5rem;
+
+        /* Developer tool specific colors */
+        --code-bg: 217 25% 8%;
+        --editor-surface: 217 20% 10%;
+        --line-number: 215 15% 45%;
+        --diff-added: 142 76% 36%;
+        --diff-removed: 0 72% 51%;
+        --diff-bg-added: 142 30% 15%;
+        --diff-bg-removed: 0 30% 15%;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, hsl(239 84% 67%), hsl(221 83% 53%));
+        --gradient-subtle: linear-gradient(180deg, hsl(217 20% 10%), hsl(217 25% 8%));
+
+        /* Shadows */
+        --shadow-elegant: 0 10px 30px -10px hsl(239 84% 67% / 0.2);
+        --shadow-glow: 0 0 40px hsl(239 84% 67% / 0.15);
+        --shadow-card: 0 4px 16px hsl(217 25% 5% / 0.4);
+
+        /* Animations */
+        --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    code {
+        font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    }
+}
+
+/* Monaco Editor Custom Styling */
+.monaco-editor {
+    @apply rounded-lg;
+}
+
+.monaco-editor .margin {
+    background: hsl(var(--code-bg)) !important;
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(90deg,
+            hsl(var(--card)) 0%,
+            hsl(var(--muted)) 50%,
+            hsl(var(--card)) 100%);
+    background-size: 1000px 100%;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Pulse Glow Animation */
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px hsl(var(--primary) / 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px hsl(var(--primary) / 0.2);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Scroll behavior */
+.scroll-smooth {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+}
+
+/* Diff Viewer Custom Styles */
+.diff-viewer {
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 13px !important;
+}
+
+.diff-viewer pre {
+    background: transparent !important;
+}
+
+/* No transition for transforms to prevent breaking */
+.no-transform-transition * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow;
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+
+    [data-debug-wrapper="true"]>* {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}
